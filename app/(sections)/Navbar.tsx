@@ -19,9 +19,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Define heights in pixels (h-16 ~ 64px, h-14 ~ 56px)
-  const navbarHeight = isScrolled ? 56 : 64;
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'contact']
