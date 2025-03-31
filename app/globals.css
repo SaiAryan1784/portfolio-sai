@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+    scroll-behavior: smooth;
+  }
+
+  @font-face {
+    font-family: 'Pixelify Sans';
+    src: url('/fonts/PixelifySans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Pixelify Sans', sans-serif;
+  }
+
+  /* Enhanced Kamehameha Beam */
+/* Enhanced Kamehameha Beam */
+.beam {
+  background: linear-gradient(
+    90deg,
+    #76b5d9 15%,
+    #5594b9 35%,
+    #1b6b96 65%,
+    #034577 100%
+  );
+  box-shadow:
+    0 0 10px 2px rgba(26, 111, 176, 0.4),
+    0 0 20px 4px rgba(26, 111, 176, 0.2);
+  border-radius: 3px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Energy Pulse Animation with subtle variation */
+@keyframes pulse-energy {
+  0%, 100% {
+    box-shadow:
+      0 0 10px 2px rgba(26, 111, 176, 0.4),
+      0 0 20px 4px rgba(26, 111, 176, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 15px 3px rgba(26, 111, 176, 0.5),
+      0 0 25px 5px rgba(26, 111, 176, 0.3);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-pulse-energy {
+  animation: pulse-energy 1.2s infinite;
 }
