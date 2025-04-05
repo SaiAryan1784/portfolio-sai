@@ -44,7 +44,7 @@ const Navbar = () => {
       ${
         isScrolled
           ? "w-[60%] m-7 h-14 left-1/2 transform -translate-x-1/2 text-[#783128] bg-transparent bg-clip-padding backdrop-filter backdrop-blur-md"
-          : "w-[70%] h-16 left-1/2 transform -translate-x-1/2 bg-transparent bg-opacity-90"
+          : "w-[70%] h-16 left-1/2 transform -translate-x-1/2 bg-transparent bg-opacity-90 bg-clip-padding backdrop-filter backdrop-blur-md"
       }
       rounded-xl shadow-md`}>
       <ul className='flex gap-[3rem] text-2xl'>

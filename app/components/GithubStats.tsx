@@ -4,11 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { Github } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface GitHubStatsInterface {
   public_repos: number;
   followers: number;
   following: number;
+  avatar_url : string;
 }
 
 const GitHubStats = () => {
@@ -36,7 +39,8 @@ const GitHubStats = () => {
 
   return (
     <div ref={ref} className="flex flex-col items-center space-y-2 p-4 border rounded-lg shadow-md bg-white">
-      <h2 className="text-xl font-bold">GitHub Stats</h2>
+      <Link href="https://github.com/SaiAryan1784" className="text-xl font-bold">GitHub Profile</Link>
+      <Image src={stats.avatar_url} alt="avatar" className='rounded-full' width={40} height={40} />
       <p>
         Repos:{' '}
         <CountUp start={0} end={stats.public_repos} duration={2} separator="," />
