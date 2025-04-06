@@ -24,19 +24,21 @@ const ScrollingText: React.FC<ScrollTextProps> = ({
   });
 
   // Create a modified scrollYProgress that's affected by speed
-  // For higher speeds, we need to compress the input range
   const scrollFactor = useTransform(
     scrollYProgress,
     [0, 1/speed], // Compress input range based on speed
     [0, 1],
     { clamp: false } // Important: allows values outside 0-1 range
   );
-  
+
+  // Ensure full text visibility by duplicating the text
+  const repeatedText = Array(3).fill(text).join(' ');
+
   // Calculate the transformation based on direction
   const x = useTransform(
     scrollFactor, // Use our speed-modified scroll progress
     [0, 1],
-    direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%']
+    direction === 'left' ? ['0%', '-33%'] : ['-33%', '0%']
   );
 
   return (
@@ -52,7 +54,7 @@ const ScrollingText: React.FC<ScrollTextProps> = ({
           transformOrigin: 'left center',
         }}
       >
-        {text}
+        {repeatedText}
       </motion.div>
     </div>
   );

@@ -16,8 +16,6 @@ const Home = () => {
   
   return (
     <div id='home' className='relative min-h-screen overflow-hidden bg-[#dbdee3]'>
-
-
       <div className="absolute top-0 right-0 h-full pointer-events-none">
         <VerticalScrollingText
           text="PROJECTS SKILLS EXPERIENCE "

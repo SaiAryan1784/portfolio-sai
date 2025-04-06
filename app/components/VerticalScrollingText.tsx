@@ -24,12 +24,13 @@ const VerticalScrollingText: React.FC<VerticalScrollTextProps> = ({
     target: containerRef,
     offset: ['start end', 'end start']
   });
+  
+  // Create more repetitions to ensure full coverage
   const repeatedText = useMemo(() => {
-    // Adjust the number (e.g., 15) if needed based on font size and expected heights
-    return Array(2).fill(text).join(' ');
-}, [text]);
+    return Array(4).fill(text).join(' ');
+  }, [text]);
 
-  const moveDistance = 50 * speed; // Base distance (50%) multiplied by speed
+  const moveDistance = 33 * speed; // Reduced distance for smoother scrolling
   
   // Calculate the transformation based on direction and speed
   const y = useTransform(
@@ -41,7 +42,13 @@ const VerticalScrollingText: React.FC<VerticalScrollTextProps> = ({
   );
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden w-[14rem]" style={{ height: containerHeight }}>
+    <div 
+      ref={containerRef} 
+      className="relative overflow-hidden w-[14rem]" 
+      style={{ 
+        height: containerHeight
+      }}
+    >
       <motion.div
         className="absolute whitespace-nowrap"
         style={{
@@ -58,6 +65,7 @@ const VerticalScrollingText: React.FC<VerticalScrollTextProps> = ({
           // Center the text block horizontally
           left: '50%',
           translateX: '-50%',
+          height: '100%'
         }}
       >
         {repeatedText}

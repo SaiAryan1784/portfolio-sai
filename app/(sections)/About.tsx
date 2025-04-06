@@ -3,14 +3,16 @@ import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import GitHubStats from '../components/GithubStats'
 import VerticalScrollingText from '../components/VerticalScrollingText'
-import SkillsDisplay from '../components/SkillsDisplay'
+import SkillsCloud from '../components/SkillsCloud'
 import ScrollingText from '../components/ScrollingText'
+import SkillMatrix from '../components/SkillMatrix'
+import SkillProjects from '../components/SkillProjects'
+import JourneyTimeline from '../components/JourneyTimeline'
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerHeight, setContainerHeight] = useState('100vh');
 
-  // *** Using your EXACT original useEffect logic ***
   useEffect(() => {
     if (containerRef.current) {
       const updateHeight = () => {
@@ -26,9 +28,15 @@ const About = () => {
 
       // Update on resize
       window.addEventListener('resize', updateHeight);
+      
+      // Add a small delay to ensure content is fully rendered
+      const timeoutId = setTimeout(updateHeight, 500);
 
       // Cleanup
-      return () => window.removeEventListener('resize', updateHeight);
+      return () => {
+        window.removeEventListener('resize', updateHeight);
+        clearTimeout(timeoutId);
+      }
     }
   }, [])
 
@@ -43,7 +51,7 @@ const About = () => {
         className="absolute left-10 pointer-events-none" 
         style={{ height: containerHeight, top: 0, bottom: 0 }}
       >
-        <ScrollingText
+        <VerticalScrollingText
           text=".CPP .PY .TSX .JSX .JSON .CPP .PY .TSX"
           direction="down"
           fontSize="7rem"
@@ -74,11 +82,21 @@ const About = () => {
         </p>
       </div>
       
-      <SkillsDisplay />
-      
-      <div className="mt-16">
+      {/* <SkillsCloud /> */}
+      <SkillMatrix />
+      <JourneyTimeline/>
+      {/* <div className="bottom-0 left-0 w-full text-center pointer-events-none">
+        <ScrollingText
+          text='git github gitlab bitbucket'
+          direction="right"
+          fontSize="5rem"
+          color="#e4e0e0"
+          speed={1}
+        />
+      </div> */}
+      {/* <div className="mt-16">
         <GitHubStats />
-      </div>
+      </div> */}
     </div>
   )
 }
