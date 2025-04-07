@@ -1,12 +1,12 @@
 "use client"
 import React, { useRef, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import GitHubStats from '../components/GithubStats'
+// import { motion } from 'framer-motion'
+// import GitHubStats from '../components/GithubStats'
 import VerticalScrollingText from '../components/VerticalScrollingText'
 import SkillsCloud from '../components/SkillsCloud'
-import ScrollingText from '../components/ScrollingText'
+// import ScrollingText from '../components/ScrollingText'
 import SkillMatrix from '../components/SkillMatrix'
-import SkillProjects from '../components/SkillProjects'
+// import SkillProjects from '../components/SkillProjects'
 import JourneyTimeline from '../components/JourneyTimeline'
 
 const About = () => {

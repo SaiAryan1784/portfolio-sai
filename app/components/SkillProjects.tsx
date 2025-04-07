@@ -60,7 +60,7 @@ const SkillProjects = () => {
     <div className="w-full max-w-4xl mx-auto py-12">
       <h3 className="text-3xl font-semibold text-center mb-6 text-[#e4e0e0]">Skills in Action</h3>
       <p className="text-center text-[#e4e0e0] opacity-80 mb-10 max-w-2xl mx-auto">
-        Rather than abstract percentages, here's how I've applied my skills in real projects
+        Rather than abstract percentages, here&#39;s how I&#39;ve applied my skills in real projects
       </p>
       
       {/* Category Selector */}

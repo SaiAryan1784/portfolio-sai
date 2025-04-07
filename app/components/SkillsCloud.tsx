@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const SkillCloud = () => {
   // Skill groups with visual styling
@@ -24,7 +24,7 @@ const SkillCloud = () => {
 
   const cloudRef = useRef(null);
   const radius = 180; // Cloud radius
-  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
+  // const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
 
   useEffect(() => {
     if (!cloudRef.current) return;

@@ -1,5 +1,4 @@
 "use client"
-import { useRef } from 'react'
 import ShuffleText2 from '../components/ShuffleText2'
 import TitleCycler from '../components/TitleCycler'
 import ScrollingText from '../components/ScrollingText'
