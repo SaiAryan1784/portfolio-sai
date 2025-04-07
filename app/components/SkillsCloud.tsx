@@ -22,14 +22,14 @@ const SkillCloud = () => {
     }
   ];
 
-  const cloudRef = useRef(null);
+  const cloudRef = useRef<HTMLDivElement | null>(null);
   const radius = 180; // Cloud radius
   // const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
 
   useEffect(() => {
     if (!cloudRef.current) return;
     
-    let rafId;
+    let rafId: number;
     let mouseX = 0;
     let mouseY = 0;
     let speed = 0.5;
@@ -47,19 +47,26 @@ const SkillCloud = () => {
     );
     
     // Handle mouse move for interactive rotation
-    const handleMouseMove = (e) => {
+    interface MouseEventWithClient extends MouseEvent {
+      clientX: number;
+      clientY: number;
+    }
+
+    const handleMouseMove = (e: MouseEventWithClient): void => {
+      if (!cloudRef.current) return;
       const rect = cloudRef.current.getBoundingClientRect();
-      mouseX = (e.clientX - (rect.left + rect.width/2)) * 0.01;
-      mouseY = (e.clientY - (rect.top + rect.height/2)) * 0.01;
+      mouseX = (e.clientX - (rect.left + rect.width / 2)) * 0.01;
+      mouseY = (e.clientY - (rect.top + rect.height / 2)) * 0.01;
       speed = 0.05; // Slow down when user is interacting
     };
 
     // Handle touch events for mobile
-    const handleTouchMove = (e) => {
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!cloudRef.current) return;
       if (!e.touches[0]) return;
       const rect = cloudRef.current.getBoundingClientRect();
-      mouseX = (e.touches[0].clientX - (rect.left + rect.width/2)) * 0.01;
-      mouseY = (e.touches[0].clientY - (rect.top + rect.height/2)) * 0.01;
+      mouseX = (e.touches[0].clientX - (rect.left + rect.width / 2)) * 0.01;
+      mouseY = (e.touches[0].clientY - (rect.top + rect.height / 2)) * 0.01;
       speed = 0.05;
     };
 
@@ -95,14 +102,16 @@ const SkillCloud = () => {
           el.id = `skill-${skill.text}`;
           el.className = 'absolute transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap transition-colors duration-300';
           el.innerText = skill.text;
-          cloudRef.current.appendChild(el);
+          if (cloudRef.current) {
+            cloudRef.current.appendChild(el);
+          }
         }
         
         // Apply transforms
         el.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${scale * skill.size})`;
-        el.style.opacity = scale;
+        el.style.opacity = `${scale}`;
         el.style.color = skill.color;
-        el.style.zIndex = Math.floor(scale * 1000);
+        el.style.zIndex = Math.floor(scale * 1000).toString();
         el.style.fontWeight = scale > 0.7 ? 'bold' : 'normal';
         el.style.fontSize = `${16 + (scale * 8)}px`;
       });

@@ -3,9 +3,21 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SkillProjects = () => {
-  const [activeCategory, setActiveCategory] = useState('frontend');
+  type SkillCategoryKey = keyof typeof skillCategories;
+  const [activeCategory, setActiveCategory] = useState<SkillCategoryKey>('frontend');
   
-  const skillCategories = {
+  type SkillCategory = {
+    title: string;
+    description: string;
+    projects: {
+      name: string;
+      description: string;
+      skills: string[];
+    }[];
+  };
+
+  type SkillCategories = Record<string, SkillCategory>;
+  const skillCategories: SkillCategories = {
     frontend: {
       title: "Frontend",
       description: "Creating responsive and interactive user interfaces",
