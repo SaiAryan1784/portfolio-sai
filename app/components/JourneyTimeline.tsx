@@ -5,32 +5,32 @@ import { motion } from 'framer-motion';
 const JourneyTimeline = () => {
   const journeyPoints = [
     {
-      year: "2021",
+      year: "2023",
       title: "Started Web Development",
       description: "Began learning HTML, CSS, and JavaScript fundamentals",
       icon: "🚀", // You can replace with any emoji or icon component
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
-      year: "2022",
+      year: "2023 & 2024",
       title: "Frontend Frameworks",
-      description: "Explored React ecosystem and built my first web applications",
+      description: "Explored React ecosystem and built my first web applications. Contributed to projects such as EMS of Blurock Ionic",
       icon: "⚛️",
       tech: ["React", "Redux", "TypeScript"]
     },
     {
-      year: "2023",
-      title: "Full Stack Development",
-      description: "Expanded to backend development and database management",
+      year: "2024",
+      title: "Full Stack Development and GenAI integration",
+      description: "Expanded to backend development, database management and integrating GenAI solutions to web applications",
       icon: "🔄",
-      tech: ["Node.js", "MongoDB", "Express"]
+      tech: ["Node.js", "MongoDB", "Express", "Groq", "Langchain", "Vector Database"]
     },
     {
-      year: "2024",
-      title: "Advanced UI/UX",
+      year: "2024 & 2025",
+      title: "Advanced UI/UX and moving to Next.js",
       description: "Focused on creating seamless user experiences and animations",
       icon: "✨",
-      tech: ["Framer Motion", "Tailwind", "Figma"]
+      tech: ["Framer Motion", "Tailwind", "Figma", "Next.js", "Postgres", "Prisma"]
     }
   ];
 

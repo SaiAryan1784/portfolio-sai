@@ -55,7 +55,7 @@ const About = () => {
           text=".CPP .PY .TSX .JSX .JSON .CPP .PY .TSX"
           direction="down"
           fontSize="7rem"
-          color="#e4e0e0"
+          color="#dbdee3"
           speed={1}
           containerHeight={containerHeight}
         />
@@ -68,7 +68,7 @@ const About = () => {
           text="TOML JS TS HTML GROQ"
           direction="up"
           fontSize="8rem"
-          color="#e4e0e0"
+          color="#dbdee3"
           speed={2}
           containerHeight={containerHeight}
         />

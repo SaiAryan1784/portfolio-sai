@@ -19,7 +19,7 @@ const SkillProjects = () => {
   type SkillCategories = Record<string, SkillCategory>;
   const skillCategories: SkillCategories = {
     frontend: {
-      title: "Frontend",
+      title: "Frontend and Full Stack projects",
       description: "Creating responsive and interactive user interfaces",
       projects: [
         {
@@ -28,50 +28,55 @@ const SkillProjects = () => {
           skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "NextAuth", "PostgreSQL", "Prisma", "Groq", "GenAI"]
         },
         {
-          name: "Dashboard Components",
-          description: "Created reusable data visualization components",
-          skills: ["TypeScript", "D3.js", "Material UI"]
+          name: "Portfolio",
+          description: "Developed a personal portfolio website to showcase my work",
+          skills: ["TypeScript", "D3.js", "Framer Motion", "Nextjs", "Tailwind CSS"]
+        },
+        {
+          name:"EMS",
+          description : "Developed 3-4 features and improved UI. Project is a web application for managing employee records, including CRUD operations and user authentication. Developed by Blurock Ionic",
+          skills: ["React", "JavaScript", "Tailwind CSS", "Redux", "Node.js", "Express", "MongoDB"]
+        },
+        {
+          name: "Marriage Vendors",
+          description: "Created a web application for managing marriage vendors, including user authentication and profile management. Developed by Blurock Ionic.Learnt how to use Prisma and PostgreSQL. I was able to various features and improve the UI.",
+          skills: ["React", "JavaScript", "Tailwind CSS", "Redux", "Node.js", "Express", "MongoDB", "PostgreSQL", "Prisma"]
         }
       ]
     },
     backend: {
-      title: "Backend",
+      title: "Python and GenAI projects",
       description: "Designing APIs and managing data flow",
       projects: [
         {
-          name: "Authentication Service",
-          description: "Secure user authentication with JWT and OAuth",
-          skills: ["Node.js", "Express", "MongoDB"]
+          name: "F1-GPT",
+          description: "Chatbot for F1 based Qs and As. It uses OpenAI API and Langchain to generate answers based on the data provided by the user. The data is stored in MongoDB VectorDB. This project uses RAG (Retrieval Augmented Generation) to generate answers.",
+          skills: ["Nextjs", "TypeScript", "MongoDB VectorDB", "Groq API inference", "WebScraping", "AI SDK"]
         },
         {
-          name: "REST API",
-          description: "Built RESTful APIs with comprehensive documentation",
+          name: "Proficia Backend",
+          description: "Backend part of the proficia project. It uses Streamlit for hosting and ui and Groq API for inference. JSON data is us",
           skills: ["Express.js", "Swagger", "PostgreSQL"]
         }
       ]
     },
-    tools: {
-      title: "Dev Tools",
+    software: {
+      title: "Software Engineering",
       description: "Using the right tools to streamline development",
       projects: [
         {
-          name: "CI/CD Pipeline",
-          description: "Automated testing and deployment workflows",
-          skills: ["GitHub Actions", "Jest", "Docker"]
+          name: "Remote Diagnostic Tools",
+          description: "Diagnostic tool to connect with second device to knows its system characteristics and details remotely. multiple IPs can be stored and worked upon.",
+          skills: ["Python", "http", ""]
         },
-        {
-          name: "Design System",
-          description: "Created and maintained a component library",
-          skills: ["Figma", "Storybook", "Styled Components"]
-        }
       ]
     }
   };
 
   return (
     <div className="w-full max-w-4xl mx-auto py-12">
-      <h3 className="text-3xl font-semibold text-center mb-6 text-[#e4e0e0]">Skills in Action</h3>
-      <p className="text-center text-[#e4e0e0] opacity-80 mb-10 max-w-2xl mx-auto">
+      <h3 className="text-3xl font-semibold text-center mb-6 text-[#1f1e1e]">Skills in Action</h3>
+      <p className="text-center text-[#1f1e1e] opacity-80 mb-10 max-w-2xl mx-auto">
         Rather than abstract percentages, here&#39;s how I&#39;ve applied my skills in real projects
       </p>
       
@@ -82,8 +87,8 @@ const SkillProjects = () => {
             key={category}
             className={`px-6 py-2 rounded-full text-lg font-medium transition-colors ${
               activeCategory === category 
-                ? 'bg-[#e4e0e0] text-[#1f1e1e]' 
-                : 'bg-transparent text-[#e4e0e0] border border-[#e4e0e0]'
+                ? 'bg-[#1f1e1e] text-[#e4e0e0]' 
+                : 'bg-transparent text-[#1f1e1e] border border-[#1f1e1e]'
             }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -95,7 +100,7 @@ const SkillProjects = () => {
       </div>
       
       {/* Content Display */}
-      <div className="bg-[#2a2929] rounded-xl p-6 shadow-lg min-h-[320px]">
+      <div className="bg-[#e4e0e0] rounded-xl p-6 shadow-lg min-h-[320px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -104,10 +109,10 @@ const SkillProjects = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <h4 className="text-xl font-medium text-[#e4e0e0] mb-2">
+            <h4 className="text-xl font-medium text-[#2a2929] mb-2">
               {skillCategories[activeCategory].title}
             </h4>
-            <p className="text-[#e4e0e0] opacity-80 mb-6">
+            <p className="text-[#2a2929] opacity-80 mb-6">
               {skillCategories[activeCategory].description}
             </p>
             
@@ -122,7 +127,7 @@ const SkillProjects = () => {
                   <p className="text-[#e4e0e0] opacity-70 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.skills.map(skill => (
-                      <span key={skill} className="px-3 py-1 bg-[#2a2929] text-[#e4e0e0] rounded-full text-sm">
+                      <span key={skill} className="px-3 py-1 bg-[#e4e0e0] text-[#2a2929] rounded-full text-sm">
                         {skill}
                       </span>
                     ))}
