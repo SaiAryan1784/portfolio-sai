@@ -48,7 +48,7 @@ const About = () => {
     >
       {/* Background scrolling text layers with dynamic height */}
       <div 
-        className="absolute left-10 pointer-events-none" 
+        className="absolute left-2 sm:left-5 md:left-10 pointer-events-none hidden sm:block" 
         style={{ height: containerHeight, top: 0, bottom: 0 }}
       >
         <VerticalScrollingText
@@ -61,7 +61,7 @@ const About = () => {
         />
       </div>
       <div 
-        className="absolute right-10 pointer-events-none" 
+        className="absolute right-2 sm:right-5 md:right-10 pointer-events-none hidden sm:block" 
         style={{ height: containerHeight, top: 0 }}
       >
         <VerticalScrollingText
@@ -75,9 +75,9 @@ const About = () => {
       </div>
       
       {/* Content remains unchanged from original */}
-      <div className="flex flex-col items-center justify-center text-center text-[#e4e0e0] z-10">
-        <h2 className="text-5xl font-bold mb-4">About Me</h2>
-        <p className="text-xl max-w-3xl mb-8">
+      <div className="flex flex-col items-center justify-center text-center text-[#e4e0e0] z-10 px-4 sm:px-6 md:px-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">About Me</h2>
+        <p className="text-base sm:text-lg md:text-xl max-w-3xl mb-4 sm:mb-8">
           I am a passionate developer with a love for creating innovative solutions. I enjoy working with the latest technologies and continuously learning to improve my skills.
         </p>
       </div>

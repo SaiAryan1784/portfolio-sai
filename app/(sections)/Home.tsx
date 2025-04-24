@@ -15,7 +15,7 @@ const Home = () => {
   
   return (
     <div id='home' className='relative min-h-screen overflow-hidden bg-[#dbdee3]'>
-      <div className="absolute top-0 right-0 h-full pointer-events-none">
+      <div className="absolute top-0 right-0 h-full pointer-events-none hidden sm:block">
         <VerticalScrollingText
           text="PROJECTS SKILLS EXPERIENCE "
           direction="up"
@@ -27,33 +27,33 @@ const Home = () => {
       </div>
       
       {/* Main content */}
-      <div className='relative z-10 flex flex-col justify-center h-screen px-12 md:px-24'>
+      <div className='relative z-10 flex flex-col justify-center h-screen px-4 sm:px-8 md:px-12 lg:px-24'>
         <div className="max-w-3xl">
-          <ShuffleText2 text="Sai Aryan" className='text-6xl md:text-8xl font-bold'/>
+          <ShuffleText2 text="Sai Aryan" className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold'/>
           <br />
-          <ShuffleText2 text="Goswami" className='text-6xl md:text-8xl font-bold mb-4'/>
+          <ShuffleText2 text="Goswami" className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4'/>
           <div className="h-16 mt-3">
             <TitleCycler titles={titles} />
           </div>
-          <p className="mt-6 text-2xl text-gray-600 max-w-lg">
+          <p className="mt-6 text-base sm:text-xl md:text-2xl text-gray-600 max-w-lg">
             Creating elegant, interactive web experiences with modern technology and creative design principles.
           </p>
-          <div className="mt-8">
-            <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition cursor-pointer">
+          <div className="mt-4 sm:mt-6 md:mt-8 flex flex-wrap gap-3">
+            <button className="px-4 sm:px-5 md:px-6 py-2 sm:py-3 bg-black text-white rounded-full hover:bg-gray-800 transition cursor-pointer text-sm sm:text-base">
               <Link href="#projects">View My Work</Link>
             </button>
-            <button className="px-6 py-3 ml-4 border-2 border-black rounded-full hover:bg-gray-100 transition cursor-pointer">
+            <button className="px-4 sm:px-5 md:px-6 py-2 sm:py-3 border-2 border-black rounded-full hover:bg-gray-100 transition cursor-pointer text-sm sm:text-base">
               <Link href="#contact">Contact</Link>
             </button>
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 mt-[50%]">
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 mt-[60%] sm:mt-[50%]">
          <div className="">
           <ScrollingText
           text="BADMINTON CHESS FOOTBALL"
           direction="right"
-          fontSize="6rem"
+          fontSize="clamp(3rem, 8vw, 6rem)"
           color="#0000003d"
           speed={1}
         />

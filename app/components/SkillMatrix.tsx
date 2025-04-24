@@ -91,9 +91,9 @@ const SkillMatrix = () => {
       });
     });
     
-    // Setup dimensions
+    // Setup dimensions - responsive
     const width = svgRef.current.clientWidth;
-    const height = 400;
+    const height = window.innerWidth < 640 ? 300 : 400; // Smaller height on mobile
     // Create SVG
     const svg = d3.select(svgRef.current)
       .attr("width", width)
@@ -103,7 +103,7 @@ const SkillMatrix = () => {
     // Create force simulation
     const simulation = d3.forceSimulation<Skill>(skills)
       .force("link", d3.forceLink<Skill, SimulationLink>(links).id((d: Skill) => d.id).distance(80))
-      .force("charge", d3.forceManyBody().strength(-200))
+      .force("charge", d3.forceManyBody().strength(window.innerWidth < 640 ? -100 : -200)) // Less repulsion on mobile
       .force("x", d3.forceX())
       .force("y", d3.forceY())
       .force("collision", d3.forceCollide().radius((d) => ((d as Skill).level / 10) + 15));
@@ -252,14 +252,14 @@ const SkillMatrix = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-12">
-      <h3 className="text-3xl font-semibold text-center mb-6 text-[#e4e0e0]">Skill Connections</h3>
-      <p className="text-center text-[#e4e0e0] opacity-80 mb-8 max-w-2xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto py-6 sm:py-8 md:py-12 px-2 sm:px-4">
+      <h3 className="text-2xl sm:text-3xl font-semibold text-center mb-3 sm:mb-6 text-[#e4e0e0]">Skill Connections</h3>
+      <p className="text-center text-[#e4e0e0] opacity-80 mb-4 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
         An interactive map showing how my technical skills interrelate
       </p>
       
-      <div className="bg-[#2a2929] rounded-xl p-6 shadow-lg">
-        <div className="flex justify-center gap-6 mb-4">
+      <div className="bg-[#2a2929] rounded-xl p-3 sm:p-6 shadow-lg">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 mb-2 sm:mb-4">
           {Object.entries(groupColors).map(([group, color]) => (
             <div key={group} className="flex items-center">
               <div className="w-4 h-4 rounded-full mr-2" style={{ backgroundColor: color }}></div>
@@ -270,7 +270,7 @@ const SkillMatrix = () => {
         
         <div className="w-full relative overflow-hidden">
           <svg ref={svgRef} className="w-full"></svg>
-          <div className="text-center mt-2 text-sm text-[#e4e0e0] opacity-70">
+          <div className="text-center mt-2 text-xs sm:text-sm text-[#e4e0e0] opacity-70">
             Drag nodes to interact • Circle size indicates proficiency
           </div>
         </div>
