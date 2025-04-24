@@ -14,7 +14,7 @@ const Home = () => {
   ]
   
   return (
-    <div id='home' className='relative min-h-screen overflow-hidden bg-[#dbdee3]'>
+    <div id='home' className='relative min-h-screen overflow-hidden bg-[#dbdee3] pb-10'>
       <div className="absolute top-0 right-0 h-full pointer-events-none hidden sm:block">
         <VerticalScrollingText
           text="PROJECTS SKILLS EXPERIENCE "
@@ -29,9 +29,9 @@ const Home = () => {
       {/* Main content */}
       <div className='relative z-10 flex flex-col justify-center h-screen px-4 sm:px-8 md:px-12 lg:px-24'>
         <div className="max-w-3xl">
-          <ShuffleText2 text="Sai Aryan" className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold'/>
+          <ShuffleText2 text="Sai Aryan" className='text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold'/>
           <br />
-          <ShuffleText2 text="Goswami" className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4'/>
+          <ShuffleText2 text="Goswami" className='text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4'/>
           <div className="h-16 mt-3">
             <TitleCycler titles={titles} />
           </div>
@@ -48,12 +48,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 mt-[60%] sm:mt-[50%]">
-         <div className="">
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0">
+         <div className="overflow-hidden">
           <ScrollingText
           text="BADMINTON CHESS FOOTBALL"
           direction="right"
-          fontSize="clamp(3rem, 8vw, 6rem)"
+          fontSize="clamp(1.5rem, 5vw, 3rem)"
           color="#0000003d"
           speed={1}
         />
