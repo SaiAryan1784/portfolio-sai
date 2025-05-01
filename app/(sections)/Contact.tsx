@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
+import { send } from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -71,33 +71,37 @@ const Contact: React.FC = () => {
     
     setLoading(true);
     
-    // Replace these with your actual EmailJS credentials
-    const serviceId = "YOUR_EMAILJS_SERVICE_ID";
-    const templateId = "YOUR_EMAILJS_TEMPLATE_ID";
-    const publicKey = "YOUR_EMAILJS_PUBLIC_KEY";
-    
     try {
-      if (formRef.current) {
-        const templateParams = {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: "saiaryan.goswami1784@gmail.com"
-        };
-        
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
-        
-        setSuccess(true);
-        setError(false);
-        setEmailCount(prev => prev + 1);
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          message: '',
-        });
-      }
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Sai Aryan',
+        reply_to: formData.email
+      };
+      
+      // Log the attempt (for debugging)
+      console.log('Attempting to send email with EmailJS');
+      
+      // Send the email using EmailJS
+      await send(
+        'service_1z01708',  // Service ID
+        'template_7v1c0ry',  // Template ID
+        templateParams,     // Template parameters
+        'DFOCDgwz_bFaT14kt' // Public Key
+      );
+      
+      setSuccess(true);
+      setError(false);
+      setEmailCount(prev => prev + 1);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
     } catch (err) {
       console.error("Error sending email:", err);
       setError(true);
@@ -206,23 +210,27 @@ const Contact: React.FC = () => {
           >
             <h2 className='text-2xl font-bold mb-6'>Send Me a Message</h2>
             {emailCount >= 2 && (
-              <div className='mb-6 p-4 bg-red-500/20 text-red-200 rounded-lg'>
+              <div className='mb-6 p-4 bg-red-500/20 text-white rounded-lg'>
                 <p className='font-medium'>Email limit reached (max 2)</p>
-                <p className='text-sm'>Please use direct email contact instead.</p>
+                <p className='text-sm'>Please use direct email contact instead. 
+                  <a href="mailto:saiaryangoswami1784@gmail.com" className='text-primary'>saiaryangoswami1784@gmail.com</a>
+                </p>
               </div>
             )}
             
             {success && (
-              <div className='mb-6 p-4 bg-green-500/20 text-green-200 rounded-lg'>
+              <div className='mb-6 p-4 bg-green-500/20 text-white rounded-lg'>
                 <p className='font-medium'>Message sent successfully!</p>
                 <p className='text-sm'>I&apos;ll get back to you as soon as possible.</p>
               </div>
             )}
             
             {error && !success && (
-              <div className='mb-6 p-4 bg-red-500/20 text-red-200 rounded-lg'>
+              <div className='mb-6 p-4 bg-red-500/20 text-white rounded-lg'>
                 <p className='font-medium'>Failed to send message</p>
-                <p className='text-sm'>Please try again later or contact me directly via email.</p>
+                <p className='text-sm'>Please try again later or contact me directly via email.
+                  <a href="mailto:saiaryangoswami1784@gmail.com" className='text-primary'>saiaryangoswami1784@gmail.com</a>
+                </p>
               </div>
             )}
             
