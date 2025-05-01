@@ -52,3 +52,54 @@ html {
 .animate-pulse-energy {
   animation: pulse-energy 1.2s infinite;
 }
+
+/* Anime-themed Navbar Styling */
+.nav-glass {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Subtle shadow effect */
+.nav-glass {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Clean monochrome styling */
+.monochrome-text {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile menu container */
+.mobile-menu-container {
+  max-width: calc(100vw - 2rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure content doesn't scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger menu positioning */
+.hamburger-fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+}

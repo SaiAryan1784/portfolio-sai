@@ -26,7 +26,7 @@ const Goku = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 p-2 z-50 mt-2">
+    <div className="fixed top-0 left-0 p-2 z-30 mt-2">
       {/* Goku Image */}
       <Image
         src="/goku.png"
