@@ -107,7 +107,16 @@ const Navbar = () => {
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="nav-glass p-3 rounded-full shadow-lg border border-white/30 hamburger-fixed"
-              style={{ background: 'rgba(0, 0, 0, 0.7)' }}
+              style={{ 
+                background: 'rgba(0, 0, 0, 0.7)', 
+                maxWidth: '48px', 
+                maxHeight: '48px', 
+                overflow: 'hidden', 
+                position: 'absolute', 
+                right: '16px', 
+                top: '16px', 
+                zIndex: '50' 
+              }}
               aria-label="Toggle menu"
             >
               <svg 
