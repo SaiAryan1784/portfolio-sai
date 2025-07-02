@@ -113,7 +113,7 @@ const Navbar = () => {
                 maxHeight: '48px', 
                 overflow: 'hidden', 
                 position: 'absolute', 
-                right: '16px', 
+                right: 'calc(5%)', 
                 top: '16px', 
                 zIndex: '50' 
               }}
